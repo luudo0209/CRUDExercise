@@ -1,6 +1,7 @@
 package com.luu.model.dto;
 
 public class UserDTO {
+	private int id;
 	private String userName;
 	private String email;
 	private String address;
@@ -10,11 +11,20 @@ public class UserDTO {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public UserDTO(String userName, String email, String address) {
+	public UserDTO(int id, String userName, String email, String address) {
 		super();
 		this.userName = userName;
 		this.email = email;
 		this.address = address;
+	}
+	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getUserName() {

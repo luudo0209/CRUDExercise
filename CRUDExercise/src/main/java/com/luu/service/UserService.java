@@ -21,11 +21,17 @@ public class UserService implements IUserService{
 	@Override
 	public UserDTO createUser(CreateUserRequest createUserRequest) {
 		User user = new User();
+		UserDTO userdto = new UserDTO();
 		user.setUserName(createUserRequest.getUserName());
 		user.setEmail(createUserRequest.getEmail());
 		user.setAddress(createUserRequest.getAddress());
 		userRepository.save(user);
-	     return null;
+		
+		userdto.setUserName(user.getUserName());
+		userdto.setEmail(user.getEmail());
+		userdto.setAddress(user.getAddress());
+		return userdto;
+	     
 	}
 
 	@Override

@@ -5,10 +5,6 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import io.swagger.annotations.ApiModelProperty;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 public class CreateUserRequest {
 	
@@ -39,6 +35,17 @@ public class CreateUserRequest {
             required=true
     )
 	private String address;
+
+	
+	public CreateUserRequest(
+			@NotNull(message = "User name is required") @NotEmpty(message = "User name is required") String userName,
+			@NotNull(message = "Email is required") @NotEmpty(message = "Email is required") @Email(message = "Please provide a valid email") String email,
+			@NotNull(message = "Address is required") @NotEmpty(message = "Address is required") String address) {
+		super();
+		this.userName = userName;
+		this.email = email;
+		this.address = address;
+	}
 
 	public String getUserName() {
 		return userName;
